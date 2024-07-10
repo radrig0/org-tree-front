@@ -1,0 +1,56 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    border: solid 2px black;
+    border-radius: 15px;
+    padding: 20px 10px 0;
+    margin-top: 50px;
+    width: 200px;
+    cursor: default;
+}
+
+.editedCard {
+    background-color: yellow;
+}
+
+.selectedCard {
+    background-color: lightgreen;
+    cursor: pointer;
+}
+
+.availableCard {
+    background-color: deepskyblue;
+    cursor: pointer;
+}
+
+.availableCard:hover, .selectedCard:hover {
+    opacity: 0.8;
+}
+
+.userIcon {
+    position: absolute;
+    top: -27px;
+}
+
+.actionButton {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.leftButton {
+    left: 5px;
+    right: auto;
+}
+
+.menu {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
