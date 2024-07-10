@@ -15,7 +15,7 @@ export const convertArrayToTree = <T extends { id: number; parentId: number | nu
 
   for (const id in nodeMap) {
     const node = nodeMap[id];
-    if (node.parentId === null) {
+    if (node.parentId === null || !nodeMap[node.parentId]) {
       result.push(node);
     } else {
       nodeMap[node.parentId].childNodes.push(node);
