@@ -30,6 +30,7 @@ export const AddEmployeeForm = () => {
 
   const onCreate = async () => {
     await createEmployee(newEmployee);
+    setNewEmployee(emptyEmployee);
     setIsOpen(false);
   };
 
