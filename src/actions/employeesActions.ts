@@ -1,62 +1,51 @@
 'use server';
 
 import { IEmployee } from '@/app/_orgTree/models';
+import axios from 'axios';
 
 const SERVER = 'https://org-tree-back.vercel.app/';
 const employeesPath = '/employees';
 
 export async function create(employee: Omit<IEmployee, 'id'>): Promise<IEmployee | null> {
-  const response = await fetch(
-    `${SERVER}/employees`,
-    {
-      method: 'POST',
-      body: JSON.stringify(employee),
+  try {
+    const response = await axios.post(`${SERVER}${employeesPath}`, employee, {
       headers: { 'Content-Type': 'application/json' },
-    },
-  );
-  if (response.ok) {
-    return response.json();
-  } else {
-    console.log('response create error: ', response);
+    });
+    return response.data;
+  } catch (error) {
+    console.log('response create error: ', error);
     return null;
   }
 }
 
 export async function getList(): Promise<IEmployee[]> {
-  const response = await fetch(`${SERVER}${employeesPath}`, { method: 'GET', cache: 'force-cache' });
-  if (response.ok) {
-    return response.json();
-  } else {
-    console.log('response list error: ', response);
+  try {
+    const response = await axios.get(`${SERVER}${employeesPath}`, {
+      headers: { 'Cache-Control': 'force-cache' },
+    });
+    return response.data;
+  } catch (error) {
+    console.log('response list error: ', error);
     return [];
   }
 }
 
 export async function updateParentId(id: number, parentId: number | null): Promise<IEmployee | null> {
-  const response = await fetch(
-    `${SERVER}${employeesPath}/${id}`,
-    {
-      method: 'PATCH',
-      body: JSON.stringify({ parentId }),
+  try {
+    const response = await axios.patch(`${SERVER}${employeesPath}/${id}`, { parentId }, {
       headers: { 'Content-Type': 'application/json' },
-    },
-  );
-  if (response.ok) {
-    return response.json();
-  } else {
-    console.log('response update parent id error: ', response);
+    });
+    return response.data;
+  } catch (error) {
+    console.log('response update parent id error: ', error);
     return null;
   }
 }
 
 export async function deleteById(id: number): Promise<void> {
-  const response = await fetch(
-    `${SERVER}${employeesPath}/${id}`,
-    { method: 'DELETE' },
-  );
-  if (response.ok) {
-    return;
-  } else {
-    console.log('response delete parent id error: ', response);
+  try {
+    await axios.delete(`${SERVER}${employeesPath}/${id}`);
+  } catch (error) {
+    console.log('response delete parent id error: ', error);
   }
 }
