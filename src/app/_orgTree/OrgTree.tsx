@@ -2,11 +2,11 @@
 
 import { FC, useContext, useEffect } from 'react';
 import { EmployeeCard } from './EmployeeCard/EmployeeCard';
-import { TreeRenderer } from './TreeRenderer/TreeRenderer';
 import styles from './orgTree.module.css';
 import { AddEmployeeForm } from './AddEmployeeForm/AddEmployeeForm';
 import { getList } from '@/actions/employeesActions';
 import { EmployeesContext } from '@/providers/EmployeesProvider';
+import { TreeRenderer } from '@/components/treeRenderer/TreeRenderer';
 
 export const OrgTree: FC = () => {
   const { employees, setEmployees } = useContext(EmployeesContext);
