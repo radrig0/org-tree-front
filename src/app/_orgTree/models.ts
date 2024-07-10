@@ -1,6 +1,6 @@
-export interface IUser {
+export interface IEmployee {
   id: number;
   parentId: number | null;
-  firstname: string
-  lastname: string
+  firstName: string
+  lastName: string
 }
