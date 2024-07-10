@@ -2,7 +2,7 @@
 
 import { IEmployee } from '@/app/_orgTree/models';
 
-const SERVER = 'http://localhost:3000';
+const SERVER = 'https://org-tree-back.vercel.app/';
 const employeesPath = '/employees';
 
 export async function create(employee: Omit<IEmployee, 'id'>): Promise<IEmployee | null> {
