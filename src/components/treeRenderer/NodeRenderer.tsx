@@ -9,6 +9,7 @@ interface IProps<T> {
 
 export const NodeRender = <T, >({ node, renderComponent: RenderComponent }: IProps<T>) => {
   return <div className={styles.node}>
+    <div className={styles.nodePath} />
     <RenderComponent {...node} />
     {node.childNodes.length > 0 ? (
       <div className={styles.list}>

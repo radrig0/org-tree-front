@@ -115,16 +115,18 @@ export const EmployeeCard: FC<IEmployee> = (employee) => {
   }, [employeeCardMode]);
 
   return (
-    <div
-      className={`${styles.card} ${cardClassName}`}
-      onClick={onCardClick}
-    >
-      <div className={styles.userIcon}>
-        <UserIcon height={50} width={50} />
+    <div className={styles.wrapper}>
+      <div
+        className={`${styles.card} ${cardClassName}`}
+        onClick={onCardClick}
+      >
+        <div className={styles.userIcon}>
+          <UserIcon height={50} width={50} />
+        </div>
+        {buttons}
+        <div>{employee.firstName}</div>
+        <div>{employee.lastName}</div>
       </div>
-      {buttons}
-      <div>{employee.firstName}</div>
-      <div>{employee.lastName}</div>
     </div>
   );
 };

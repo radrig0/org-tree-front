@@ -17,7 +17,7 @@ export const TreeRenderer = <T extends INode>({ nodes, renderComponent }: IProps
   const trees = convertArrayToTree(nodes);
 
   return (
-    <div className={styles.list}>
+    <div className={`${styles.list} ${styles.topList}`}>
       {trees.map(node => (
         <NodeRender key={node.id} node={node} renderComponent={renderComponent} />
       ))}
