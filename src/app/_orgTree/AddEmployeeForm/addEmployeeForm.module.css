@@ -1,0 +1,43 @@
+.button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.dialog {
+    position: relative;
+    z-index: 50;
+}
+
+.wrapper {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.dialogPanel {
+    margin-top: 16px;
+    max-width: 600px;
+    border: solid 1px black;
+    background: white;
+    padding: 16px;
+}
+
+.label {
+    display: flex;
+    margin: 8px 0;
+    gap: 4px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
